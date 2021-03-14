@@ -1,7 +1,8 @@
 package com.sgveteris.trader.model;
 
 import java.time.ZonedDateTime;
-import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +14,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CalculationResponseModel {
-	private ZonedDateTime zonedDateTime;
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
+	private ZonedDateTime expireZonedDateTime;
 	private PriceModel fromPrice;
 	private CoinModel toCoin;
 }

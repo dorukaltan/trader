@@ -1,18 +1,7 @@
 package com.sgveteris.trader.apiclient.blockchain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.HashMap;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+public class BlockChainTickerResponseModel extends HashMap<String, TickerModel> {
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class BlockChainTickerResponseModel {
-	
-	@JsonProperty("USD")
-	private TickerModel usdRates; 
 }
