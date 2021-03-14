@@ -2,8 +2,11 @@ package com.sgveteris.trader.service;
 
 import java.time.ZonedDateTime;
 import java.util.HashMap;
+import java.util.Random;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,7 @@ public class CalculationService {
 	@Autowired
 	private BlockChainClient blockChainClient;
 
+	@Cacheable(cacheManager = "BlockChainTickerCacheManager", value = "calculate")
 	public CalculationResponseModel calculate(CalculationRequestModel request) {
 		PriceCurrencyEnum fromPriceCurrency = request.getFromPrice().getCurrency();
 		double fromPriceAmount = request.getFromPrice().getAmount();
